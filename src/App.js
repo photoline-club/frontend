@@ -3,9 +3,9 @@ import {Route, Routes, BrowserRouter as Router, Link} from "react-router-dom";
 import Home from './routes/Home.js';
 import Profile from './routes/Profile.js';
 import Login from './routes/Login.js';
+import Event from './routes/Event.js';
 import Register from './routes/Register.js';
 import React, { useState } from "react"
-
 
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
           <Route path="/profile" Component={Profile} />
           <Route path="/login" Component={Login} />
           <Route path="/register" Component={Register} />
+          <Route path='/event' Component={Event} />
         </Routes>
       </div>
     </Router>

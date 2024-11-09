@@ -27,11 +27,14 @@ body {
   border-radius: 50%
 }
 
+.wrapper {
+  background-color: rgb(197, 224, 249);
+}
+
 .wrapper:hover {
     background-color: #ecdfdf;   /* Change background color on hover */
     box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.2);  /* Add shadow for better visual effect */
     transition: all 0.3s ease;    /* Smooth transition for hover effects */
-    
 }
 
 #title {

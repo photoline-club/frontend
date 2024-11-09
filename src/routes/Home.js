@@ -4,8 +4,7 @@ import { NavBar } from "../components/NavBar";
 import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
 import { Timeline } from 'primereact/timeline';
-
-
+import { Link } from "react-router-dom";
 
 export default function Home() {
     // Need to get memory_name, date of memory and an image if wanted
@@ -16,19 +15,15 @@ export default function Home() {
         { memory_name: 'Delivered', date: '16/10/2020 10:00'}
     ];
 
-
-
     const customizedContent = (item) => {
         return (
-            <div class = "wrapper">
             <Card title={<p class = "event_title">{item.memory_name}</p>} subTitle={<p class = "event_date">{item.date}</p>} className = "wrapper">
-                { item.image && <img src={`https://primefaces.org/cdn/primereact/images/product/${item.image}`} alt={item.name} width={200} className="shadow-1" />}
+                { item.image && <img src={`https://primefaces.org/cdn/primereact/images/product/${item.image}`} alt={item.name} className="shadow-1"/>}
                 {/* Add comment of memory_name here */}
                 <p class = "event_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
                     quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
-                <Button label="Read more" className="p-button-text"></Button>
+                <Button className="p-button-text" ><Link to='Event'>Read more</Link></Button>
             </Card>
-            </div>
         );
 
     };
