@@ -24,6 +24,7 @@ export const NavBar = () => {
                 <Link to='/' style={linkStyle}>Home</Link>
                 <Link to='/profile' style={linkStyle}>Profile</Link>
                 <Link to='/login' style={linkStyle}>Login</Link>
+                <Link to='/event' style={linkStyle}>Event</Link>
                 </div>
           </Nav>
         </Navbar.Collapse>

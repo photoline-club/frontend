@@ -3,10 +3,15 @@ import '../App.css';
 import { NavBar } from "../components/NavBar";
 
 
+export default function Event() {
+    return (
+        <div className="container">
+            <NavBar />
+        </div> 
+    )
 
-
-export default function Home() {
-    <div className="container">
-        
-    </div>
 }
+
+
+
+

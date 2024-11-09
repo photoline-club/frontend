@@ -14,14 +14,11 @@ const linkStyle = {
 
 const fetchData = async (name, pass) => {
     try {
-        alert('agiawrbev');
         const response = await fetch(api+'/api/login', {
             method: 'POST',
             headers: {'authorization': name+':'+pass,},
             body: JSON.stringify({ username: name, password: pass })
         });
-
-        alert(response.status);
 
         if (response.status !== 201) {
             alert("Login fail");
@@ -32,7 +29,6 @@ const fetchData = async (name, pass) => {
         // var cat = localStorage.getItem("CurrentUser");
         // localStorage.removeItem("lastname");
     } catch (error) {
-        alert(error);
         alert("Username or password is wrong");
     }
 }

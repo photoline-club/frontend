@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
     // Need to get memory_name, date of memory and an image if wanted
+
     const events = [
         { memory_name: 'Ordered', date: '15/10/2020 10:30', image: 'game-controller.jpg' },
         { memory_name: 'Processing', date: '15/10/2020 14:00'},
