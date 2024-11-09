@@ -4,6 +4,9 @@ import Home from './routes/Home.js';
 import Profile from './routes/Profile.js';
 import Login from './routes/Login.js';
 import Register from './routes/Register.js';
+import React, { useState } from "react"
+
+import { Timeline } from 'primereact/timeline';
 
 function App() {
   return (
@@ -21,5 +24,6 @@ function App() {
     </Router>
   );
 }
+
 
 export default App;
