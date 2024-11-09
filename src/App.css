@@ -9,7 +9,33 @@ body {
   color: #CBCFC2;
 }
 
+.event_title {
+  font-size: 5rem;
+}
 
+.event_date {
+  font-size: 4rem;
+}
+
+.event_content {
+  font-size: 3rem;
+}
+
+.p-timeline-event-marker {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%
+}
+
+.wrapper {
+  background-color: rgb(197, 224, 249);
+}
+
+.wrapper:hover {
+    background-color: #ecdfdf;   /* Change background color on hover */
+    box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.2);  /* Add shadow for better visual effect */
+    transition: all 0.3s ease;    /* Smooth transition for hover effects */
+}
 
 #title {
   text-align: center;
