@@ -22,7 +22,8 @@ export const NavBar = () => {
             <Nav className="me-auto">
                 <div className="navcontainer">
                 <Link to='/' style={linkStyle}>Home</Link>
-                <Link to='profile' style={linkStyle}>Profile</Link>
+                <Link to='/profile' style={linkStyle}>Profile</Link>
+                <Link to='/login' style={linkStyle}>Login</Link>
                 </div>
           </Nav>
         </Navbar.Collapse>
