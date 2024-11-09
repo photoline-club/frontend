@@ -1,3 +1,13 @@
+# Setting up from clone
+
+make sure npm is installed - mac use brew install npm\
+clone the repository\
+delete package-lock.json file - (rm package-lock.json)\
+run npm install\
+run npm start and should work\
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
