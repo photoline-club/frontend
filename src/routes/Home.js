@@ -47,26 +47,11 @@ export default function Home() {
     }, [navigate]);
 
 
-    // const events = [
-    //     { memory_name: 'Ordered', date: '15/10/2020 10:30', image: 'game-controller.jpg' },
-    //     { memory_name: 'Processing', date: '15/10/2020 14:00'},
-    //     { memory_name: 'Shipped', date: '15/10/2020 16:15'},
-    //     { memory_name: 'Delivered', date: '16/10/2020 10:00'}
-    // ];
-
-    
-    const customizedContent = (event) => {
-        return (
-            <div>
-            <Card title={<p class = "event_title">{event.memory_name}</p>} subTitle={<p class = "event_date">{event.start_date} - {event.end_date}</p>} className = "wrapper">
-                {/* Add comment of memory_name here */}
-                <p class = "event_content">{event.description}</p>
-                <Button className="p-button-text" ><Link to='Event' className = "event_link">Expand Memory</Link></Button>
-            </Card>
-            </div>
-        );
-
+    const handleEventClick = (event) => {
+        navigate('/Event');
+        // You can access event details here
     };
+
 
     return (
         <div className="container">
@@ -75,7 +60,12 @@ export default function Home() {
             <section>
                 <h1 id = "title">Photoline</h1>
                 <div className="card">
-                    <Timeline value={events} opposite={(event) => <small><Link to='Event' className = "event_link">{event.memory_name}</Link></small>} content={(event) => <small className="text-color-secondary">{event.start_date}-{event.end_date}</small>} />
+                    <script>
+                        
+                    </script>
+                    <Timeline value={events} 
+                        opposite={(event) => <small><Link to='Event' className = "event_link">{event.memory_name}</Link></small>} content={(event) => <small className="text-color-secondary">{event.start_date}-{event.end_date}</small>}
+                        onClick={(e) => handleEventClick(e)} />
                 </div>
             </section>
         </div>
