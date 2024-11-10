@@ -61,7 +61,7 @@ export default function Home() {
             <Card title={<p class = "event_title">{event.memory_name}</p>} subTitle={<p class = "event_date">{event.start_date} - {event.end_date}</p>} className = "wrapper">
                 {/* Add comment of memory_name here */}
                 <p class = "event_content">{event.description}</p>
-                <Button className="p-button-text" ><Link to='Event' className = "event_content">Read more</Link></Button>
+                <Button className="p-button-text" ><Link to='Event' className = "event_link">Expand Memory</Link></Button>
             </Card>
             </div>
         );
@@ -75,7 +75,7 @@ export default function Home() {
             <section>
                 <h1 id = "title">Photoline</h1>
                 <div className="card">
-                    <Timeline value={events} align="alternate" className="customized-timeline" content={customizedContent} />
+                    <Timeline value={events} opposite={(event) => <small><Link to='Event' className = "event_link">{event.memory_name}</Link></small>} content={(event) => <small className="text-color-secondary">{event.start_date}-{event.end_date}</small>} />
                 </div>
             </section>
         </div>
