@@ -63,12 +63,12 @@ const ImageGallery = () => {
           flexDirection: "column",
         }}
       >
-        <h1 style={{ color: "black" }}>{event.title}</h1>
-        <h2 style={{ color: "black" }}>{event.description}</h2>
+        <h1 style={{ color: "black" }}>{event?.title}</h1>
+        <h2 style={{ color: "black" }}>{event?.description}</h2>
         <h3 style={{ color: "black" }}>
-          {new Date(event.event_start).toLocaleDateString()}
+          {new Date(event?.event_start).toLocaleDateString()}
           &nbsp;-&nbsp;
-          {new Date(event.event_end).toLocaleDateString()}
+          {new Date(event?.event_end).toLocaleDateString()}
         </h3>
       </div>
       <div
