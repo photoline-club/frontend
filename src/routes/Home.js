@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import '../App.css';
 import { NavBar } from "../components/NavBar";
+import { useNavigate  } from 'react-router-dom';
 import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
 import { Timeline } from 'primereact/timeline';
@@ -28,7 +29,7 @@ export default function Home() {
         );
 
     };
-    
+
     return (
         <div className="container">
             <NavBar />
@@ -39,7 +40,7 @@ export default function Home() {
                     <Timeline value={events} align="alternate" className="customized-timeline" content={customizedContent} />
                 </div>
             </section>
-        </div> 
-        
+        </div>
+
     );
 }
