@@ -27,6 +27,7 @@ function App() {
             <Route path="/register" Component={Register} />
             <Route path="/friend" Component={Friend} />
             <Route path="/logout" Component={Logout} />
+            <Route path="/event" Component={Event} />
           </Routes>
         </div>
       </Router>

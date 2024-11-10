@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import '../App.css';
 import { NavBar } from "../components/NavBar";
-import { useNavigate  } from 'react-router-dom';
 import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
 import { Timeline } from 'primereact/timeline';
