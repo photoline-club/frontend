@@ -30,26 +30,23 @@ const getData = async () => {
 
 }
 
-// const fetchData = async (username, firstname, lastname, password) => {
-//     try {
-//         const response = await fetch(api+'/api/events', {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify({ "username": username, "first_name": firstname, "last_name": lastname, "password": password })
-//         });
+const fetchData = async (title, description, start_date, end_date, users) => {
+    const response = await fetch(api+'/api/events', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer '+localStorage.getItem("CurrentUser")
+        },
+        body: JSON.stringify({ "title": title, "description": description, "start_date": start_date, "end_date": end_date, "users": users})
+    });
 
-//         if (response.status === 409) {
-//             alert("Username is taken");
-//             return;
-
-//         }
-
-//     } catch (error) {
-//         alert(error);
-//     }
-// }
+    if (response.status === 401) {
+        throw (new Error());
+    } else if (response.status !== 201) {
+        alert("Error");
+        return;
+    }
+}
 
 // const handleSubmit = () => {
 //     fetchData(name, description, start_date, end_date, friends);
@@ -74,9 +71,8 @@ export default function Add_Event() {
     }, [navigate]);
 
     const handleSubmit = () => {
-        console.log("asubviaw");
-        // fetchData(codeEntered).catch(()=>{navigate('/login');});
-        // setCodeEntered('');
+        fetchData(name, description, start_date, end_date, selected).catch(()=>{navigate('/login');});
+        setName(''); setDescription(''); setStartDate(''); setEndDate(''); setSelected(''); setDisplay([]);
     }
 
 
