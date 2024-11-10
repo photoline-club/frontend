@@ -33,7 +33,9 @@ export const NavBar = () => {
         }}
       >
         <div style={navbar_logo}>
-          <img src={logo} alt="Logo" />
+          <Link to="/home">
+            <img src={logo} alt="Logo" />
+          </Link>
         </div>
         <div className="" style={{ display: "flex", flexWrap: "wrap" }}>
           <Link to="/home" style={linkStyle}>
