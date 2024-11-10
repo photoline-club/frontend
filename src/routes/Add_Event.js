@@ -65,7 +65,7 @@ export default function Add_Event() {
   const [description, setDescription] = useState("");
   const [start_date, setStartDate] = useState("");
   const [end_date, setEndDate] = useState("");
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState([]);
   const [to_display, setDisplay] = useState([]);
 
   useEffect(() => {
