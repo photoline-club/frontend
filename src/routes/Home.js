@@ -62,7 +62,7 @@ export default function Home() {
             <Card title={<p class = "event_title">{event.memory_name}</p>} subTitle={<p class = "event_date">{event.start_date} - {event.end_date}</p>} className = "wrapper">
                 {/* Add comment of memory_name here */}
                 <p class = "event_content">{event.description}</p>
-                <Button className="p-button-text" ><Link to={ "/event/"+event.id } className = "event_content">Read more</Link></Button>
+                <Button className="p-button-text" ><Link to={ "/events/"+event.id } className = "event_content">Read more</Link></Button>
             </Card>
             </div>
         );
