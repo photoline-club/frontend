@@ -10,6 +10,7 @@ const wrapperStyle = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  color: "black",
 };
 
 export default function UploadImage() {
