@@ -38,8 +38,11 @@ export default function Home() {
 
     useEffect(() => {
         getData().then((eventsList)=>{
+            console.log("deleting")
             setEvents([]);
-            eventsList.forEach(e => setEvents([...events, {memory_name: e.title, description: e.description, start_date: new Date(e.event_start).toLocaleDateString(), end_date: new Date(e.event_end).toLocaleDateString()}]));
+            const temp_list = [];
+            eventsList.forEach(e => temp_list.push({memory_name: e.title, description: e.description, start_date: new Date(e.event_start).toLocaleDateString(), end_date: new Date(e.event_end).toLocaleDateString()}));
+            setEvents(temp_list);
         }).catch(()=>{navigate('/login');})
     }, [navigate]);
 
@@ -51,13 +54,16 @@ export default function Home() {
     //     { memory_name: 'Delivered', date: '16/10/2020 10:00'}
     // ];
 
+    
     const customizedContent = (event) => {
         return (
+            <div>
             <Card title={<p class = "event_title">{event.memory_name}</p>} subTitle={<p class = "event_date">{event.start_date} - {event.end_date}</p>} className = "wrapper">
                 {/* Add comment of memory_name here */}
                 <p class = "event_content">{event.description}</p>
                 <Button className="p-button-text" ><Link to='Event' className = "event_content">Read more</Link></Button>
             </Card>
+            </div>
         );
 
     };
