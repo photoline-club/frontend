@@ -7,11 +7,11 @@ import Profile from './routes/Profile.js';
 import Login from './routes/Login.js';
 import Event from './routes/Event.js';
 import Register from './routes/Register.js';
-import React, { useState } from "react"
 
 import { Timeline } from 'primereact/timeline';
 
 import { PrimeReactProvider } from 'primereact/api';
+import Add_Event from './routes/Add_Event.js';
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
             <Route path="/login" Component={Login} />
             <Route path="/register" Component={Register} />
             <Route path='/event' Component={Event} />
+            <Route path='/add_event' Component={Add_Event} />
           </Routes>
         </div>
       </Router>
