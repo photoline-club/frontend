@@ -22,8 +22,8 @@ function App() {
         <div>
           <Routes>
             <Route path="/" exact Component={Login} />
-            <Route path="/home" exact Component={Home} />
-            <Route path="/index" exact Component={Home} />
+            <Route path="/home" Component={Home} />
+            <Route path="/index" Component={Home} />
             <Route path="/profile" Component={Profile} />
             <Route path="/login" Component={Login} />
             <Route path="/register" Component={Register} />

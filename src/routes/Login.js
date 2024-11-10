@@ -6,10 +6,35 @@ import { Button } from 'primereact/button';
 import { api } from "../const.js";
 import { useNavigate  } from 'react-router-dom';
 
-const linkStyle = {
-    margin: "1rem",
-    textDecoration: "none",
-    color: 'Black'
+const top_container_style = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+};
+
+const middle_container_style = {
+    marginTop: "10vh",
+    width: "30vw",
+};
+
+const form_label_style = {
+    marginTop: "2vh"
+
+};
+
+const form_bottom_style = {
+    marginTop: "5vh"
+};
+
+
+const side_div1 = {
+    display:'inline-block',
+    margin: '1rem',
+};
+
+const side_div2 = {
+    display:'inline-block',
+    margin: '1rem',
 };
 
 const fetchData = async (name, pass) => {
@@ -43,14 +68,21 @@ export default function Login() {
         fetchData(name, pass).then(()=>{navigate('/home');});
     }
 
+    const handleRegisterSubmit = () => {
+        navigate('/register');
+    }
+
+
     return (
-        <div>
-            <div>
-                <div>Username:</div>
-                <InputText value={name} onChange={(e) => setName(e.target.value)} />
-                <div>Password:</div>
-                <Password value={pass} onChange={(e) => setPass(e.target.value)} feedback={false} tabIndex={1} />
-                <div><Button label="Submit" onClick={handleSubmit} /><Link to='/register' style={linkStyle}>Register</Link></div>
+        <div style={top_container_style}>
+            <div style={middle_container_style}>
+                <h1>Login</h1>
+                <div style={form_label_style}>Username:</div>
+                <InputText  value={name} onChange={(e) => setName(e.target.value)} />
+                <div style={form_label_style}>Password:</div>
+                <Password  value={pass} onChange={(e) => setPass(e.target.value)} feedback={false} tabIndex={1} />
+                <div style={form_bottom_style}><div style={side_div1}><Button label="Submit" onClick={handleSubmit} /></div>
+                <div style={side_div2}><Button label="Register" onClick={handleRegisterSubmit} /></div></div>
             </div>
         </div>
     );

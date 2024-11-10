@@ -6,10 +6,35 @@ import { api } from "../const.js";
 import { useNavigate  } from 'react-router-dom';
 import { Link } from "react-router-dom";
 
-const linkStyle = {
-    margin: "1rem",
-    textDecoration: "none",
-    color: 'Black'
+const top_container_style = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+};
+
+const middle_container_style = {
+    marginTop: "10vh",
+    width: "30vw",
+};
+
+const form_label_style = {
+    marginTop: "2vh"
+
+};
+
+const form_bottom_style = {
+    marginTop: "5vh"
+};
+
+
+const side_div1 = {
+    display:'inline-block',
+    margin: '1rem',
+};
+
+const side_div2 = {
+    display:'inline-block',
+    margin: '1rem',
 };
 
 const fetchData = async (username, firstname, lastname, password) => {
@@ -52,20 +77,26 @@ export default function Login() {
         fetchData(name, pass).then(()=>{navigate('/login');});
     }
 
+    const handleLoginSubmit = () => {
+        navigate('/login');
+    }
+
     return (
-        <div>
-            <div>
-                <div>Username:</div>
+        <div style={top_container_style}>
+            <div style={middle_container_style}>
+                <h1>Register</h1>
+                <div style={form_label_style}>Username:</div>
                 <InputText value={name} onChange={(e) => setName(e.target.value)} />
-                <div>First name:</div>
+                <div style={form_label_style}>First name:</div>
                 <InputText value={first} onChange={(e) => setFirst(e.target.value)} />
-                <div>Last name:</div>
+                <div style={form_label_style}>Last name:</div>
                 <InputText value={last} onChange={(e) => setLast(e.target.value)} />
-                <div>Password:</div>
+                <div style={form_label_style}>Password:</div>
                 <Password value={pass} onChange={(e) => setPass(e.target.value)} feedback={false} tabIndex={1} />
-                <div>Confirm Password:</div>
+                <div style={form_label_style}>Confirm Password:</div>
                 <Password value={passConf} onChange={(e) => setPassConf(e.target.value)} feedback={false} tabIndex={1} />
-                <div><Button label="Submit" onClick={handleSubmit} /><Link to='/login' style={linkStyle}>Login</Link></div>
+                <div style={form_bottom_style}><div style={side_div1}><Button label="Submit" onClick={handleSubmit} /></div>
+                <div style={side_div2}><Button label="Login" onClick={handleLoginSubmit} /></div></div>
             </div>
         </div>
     );

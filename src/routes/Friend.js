@@ -6,6 +6,44 @@ import { Button } from 'primereact/button';
 import { useNavigate } from 'react-router-dom';
 import { api } from "../const.js";
 
+const top_container_style = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+};
+
+const middle_container_style = {
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+    top: '0',
+    bottom: '0',
+    left: '0',
+    right: '0',
+
+    margin: 'auto'
+};
+
+const form_label_style = {
+    marginTop: "2vh"
+
+};
+
+const form_bottom_style = {
+    marginTop: "5vh"
+};
+
+
+const side_div1 = {
+    display:'inline-block',
+    margin: '1rem',
+};
+
+const side_div2 = {
+    display:'inline-block',
+    margin: '1rem',
+};
+
 const getCode = async () => {
     const response = await fetch(api+'/api/friendcode', {
         method: 'GET',
@@ -67,16 +105,20 @@ export default function Friend() {
     }
 
     return (
-        <div className="container">
+        <div>
             <NavBar />
-            <div>
-                Your code: { code }
+            <div style={top_container_style}>
+                <div style={middle_container_style}>
+                <div>
+                    Your code: { code }
+                </div>
+                <div>
+                    Enter code:
+                </div>
+                <InputText value={codeEntered} onChange={(e) => setCodeEntered(e.target.value)} />
+                <div><Button label="Submit" onClick={handleSubmit} /></div>
+                </div>
             </div>
-            <div>
-                Enter code:
-            </div>
-            <InputText value={codeEntered} onChange={(e) => setCodeEntered(e.target.value)} />
-            <div><Button label="Submit" onClick={handleSubmit} /></div>
         </div>
     );
 }
