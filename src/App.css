@@ -9,6 +9,22 @@ body {
   color: #CBCFC2;
 }
 
+.form-row {
+  margin: 2rem;
+  align-items: left;
+}
+
+.event_wrapper {
+  background-color: #e2e1e1;
+  color: white;
+  margin: 0px auto;
+  padding-right: 2vw;
+  padding-bottom: 2vw;
+  border-radius: 2vw;
+  width: 30vw;
+  text-align: center;
+}
+
 .event_title {
   font-size: 5rem;
 }

@@ -27,6 +27,9 @@ export const NavBar = () => {
                     :<Link to='/login' style={linkStyle}>Login</Link>}
                     { ("CurrentUser" in localStorage)?
                     <Link to='/friend' style={linkStyle}>Add Friend</Link>:''}
+                    { ("CurrentUser" in localStorage)?
+                    <Link to='add_event' style={linkStyle}>Add Event</Link>:''}
+
 
                     </div>
             </Nav>

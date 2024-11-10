@@ -23,7 +23,7 @@ export default function Home() {
                 {/* Add comment of memory_name here */}
                 <p class = "event_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
                     quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
-                <Button className="p-button-text" ><Link to='Event'>Read more</Link></Button>
+                <Button className="p-button-text" ><Link to='Event' className = "event_content">Read more</Link></Button>
             </Card>
         );
 
