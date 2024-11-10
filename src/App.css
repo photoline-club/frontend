@@ -31,15 +31,21 @@ body {
 }
 
 .event_title {
-  font-size: 5rem;
+  font-size: 2rem;
 }
 
 .event_date {
-  font-size: 4rem;
+  font-size: 1.5rem;
 }
 
 .event_content {
-  font-size: 3rem;
+  font-size: 1rem;
+}
+
+.event_link {
+  font-size: 1rem;
+  text-decoration: none;
+  color: #000000;
 }
 
 .p-timeline-event-marker {
