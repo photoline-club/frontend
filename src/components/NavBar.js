@@ -2,10 +2,22 @@
 // import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 // import '../App.css';
+import logo from '../logo (1).png';
+
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+
+const navbar_logo = {
+    //marginTop: "1rem",
+    marginLeft: "1rem",
+};
+
+const navbar_main = {
+    marginTop: "1.5rem",
+    marginLeft: "1.5rem",
+};
 
 const linkStyle = {
     margin: "1rem",
@@ -16,11 +28,11 @@ const linkStyle = {
 export const NavBar = () => {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
-            <Container>
-            <Navbar.Brand href="#home">Logo</Navbar.Brand>
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="me-auto">
-                    <div className="navcontainer">
+            <div style = {{ display:'flex', justifyContent:"space-between", alignItems:"center", width:"100%", marginTop: '1rem' }}>
+            <div style={ navbar_logo }>
+                <img src={ logo } alt='Logo'/>
+                </div>
+                <div className="" style={{ marginTop: '0vh' }}>
                     <Link to='/home' style={linkStyle}>Home</Link>
                     { ("CurrentUser" in localStorage)?
                     <Link to='/logout' style={linkStyle}>Logout</Link>
@@ -29,12 +41,8 @@ export const NavBar = () => {
                     <Link to='/friend' style={linkStyle}>Add Friend</Link>:''}
                     { ("CurrentUser" in localStorage)?
                     <Link to='/add_event' style={linkStyle}>Add Event</Link>:''}
-
-
-                    </div>
-            </Nav>
-            </Navbar.Collapse>
-        </Container>
+            </div>
+        </div>
         </Navbar>
     );
 }
