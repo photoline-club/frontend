@@ -1,12 +1,17 @@
 /* In App.css or main component */
-@import 'primereact/resources/themes/saga-blue/theme.css';  /* You can choose another theme */
-@import 'primereact/resources/primereact.min.css';
-@import 'primeicons/primeicons.css';
-@import 'primeflex/primeflex.css';
+@import "primereact/resources/themes/saga-blue/theme.css"; /* You can choose another theme */
+@import "primereact/resources/primereact.min.css";
+@import "primeicons/primeicons.css";
+@import "primeflex/primeflex.css";
 
+html,
 body {
   background-color: #ffffff;
-  color: #CBCFC2;
+  color: #cbcfc2;
+  height: 100%;
+}
+#root {
+  height: 100%;
 }
 
 .form-row {
@@ -40,7 +45,7 @@ body {
 .p-timeline-event-marker {
   width: 2rem;
   height: 2rem;
-  border-radius: 50%
+  border-radius: 50%;
 }
 
 .wrapper {
@@ -48,16 +53,15 @@ body {
 }
 
 .wrapper:hover {
-    background-color: #ecdfdf;   /* Change background color on hover */
-    box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.2);  /* Add shadow for better visual effect */
-    transition: all 0.3s ease;    /* Smooth transition for hover effects */
+  background-color: #ecdfdf; /* Change background color on hover */
+  box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.2); /* Add shadow for better visual effect */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
 }
 
 #title {
   text-align: center;
   font-size: 10rem;
 }
-
 
 .App {
   text-align: center;
@@ -104,17 +108,3 @@ body {
   text-align: right;
 }
 
-.top-form-container {
-  border:1px solid black;
-  background-color: #d2d2d2;
-  height:10px;
-  width:30px;
- }
-
-/*************** Login/Register CSS ********************/
-.top-form-container {
-  color: purple;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
