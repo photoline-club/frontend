@@ -76,7 +76,12 @@ export default function Home() {
             <section>
                 <h1 id = "title">Photoline</h1>
                 <div className="card">
-                    <Timeline value={events} align="alternate" className="customized-timeline" content={customizedContent} />
+                    <script>
+                        
+                    </script>
+                    <Timeline value={events} 
+                        opposite={(event) => <small><Link to='Event' className = "event_link">{event.memory_name}</Link></small>} content={(event) => <small className="text-color-secondary">{event.start_date}-{event.end_date}</small>}
+                        onClick={(e) => handleEventClick(e)} />
                 </div>
             </section>
         </div>
