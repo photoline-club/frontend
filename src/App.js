@@ -10,11 +10,12 @@ import Event from './routes/Event.js';
 import Register from './routes/Register.js';
 import Friend from './routes/Friend.js';
 import Logout from './routes/Logout.js';
+import Add_Event from './routes/Add_Event.js';
 
 import { Timeline } from 'primereact/timeline';
 
 import { PrimeReactProvider } from 'primereact/api';
-import Add_Event from './routes/Add_Event.js';
+
 
 function App() {
   return (

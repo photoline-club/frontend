@@ -25,31 +25,31 @@ export default function Add_Event() {
     ];
 
 
-    const fetchData = async (username, firstname, lastname, password) => {
-        try {
-            const response = await fetch(api+'/api/add_event', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ "username": username, "first_name": firstname, "last_name": lastname, "password": password })
-            });
+    // const fetchData = async (username, firstname, lastname, password) => {
+    //     try {
+    //         const response = await fetch(api+'/api/add_event', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify({ "username": username, "first_name": firstname, "last_name": lastname, "password": password })
+    //         });
     
-            if (response.status === 409) {
-                alert("Username is taken");
-                return;
+    //         if (response.status === 409) {
+    //             alert("Username is taken");
+    //             return;
     
-            }
+    //         }
     
-        } catch (error) {
-            alert(error);
-        }
-    }
+    //     } catch (error) {
+    //         alert(error);
+    //     }
+    // }
 
-    const handleSubmit = () => {
-        fetchData(name, description, start_date, end_date, friends);
-        setName(''); setDescription(''); setStartDate(''); setEndDate(''); setFriends('');
-    }
+    // const handleSubmit = () => {
+    //     fetchData(name, description, start_date, end_date, friends);
+    //     setName(''); setDescription(''); setStartDate(''); setEndDate(''); setFriends('');
+    // }
 
 
     return (
@@ -81,7 +81,6 @@ export default function Add_Event() {
                     <MultiSelect value={selectedFriends} onChange={(e) => setFriends(e.value)} options={friends} optionLabel="name" display="chip" 
                     placeholder="Select Friends" className="w-full md:w-20rem" />
                 </div>
-                <div><Button label="Submit" onClick={handleSubmit} /></div>
             </div>
         </div>
     );
