@@ -72,12 +72,11 @@ export default function Add_Event() {
     getData()
       .then((friendsList) => {
         setDisplay([]);
+        const temp_list = [];
         friendsList.forEach((f) =>
-          setDisplay([
-            ...to_display,
-            { name: f.friend.username, id: f.friend.id },
-          ])
+          temp_list.push({ name: f.friend.username, id: f.friend.id })
         );
+        setDisplay(temp_list);
       })
       .catch(() => {
         navigate("/login");
@@ -164,4 +163,3 @@ export default function Add_Event() {
     </div>
   );
 }
-
