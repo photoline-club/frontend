@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useParams } from "react-router-dom"; // Import useParams from react-router-dom
 import { useEffect, useState } from "react";
 import { api } from "../const";
-import Navbar from "../components/NavBar";
+import { NavBar } from "../components/NavBar";
+import { Link } from "react-router-dom"
 const ImageGallery = () => {
 
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const ImageGallery = () => {
           alert("No images added");
           return;
         }
-        if (!response.ok) {
+        if (response.status !== 200) {
 
           navigate(`/events/${id}/upload`);
           return;
@@ -41,14 +42,13 @@ const ImageGallery = () => {
     };
     fetchImages();
   }, [id]);
-
   return (
     <div className="Root">
-      <Navbar></Navbar>
+      <NavBar></NavBar>
       <div className="image-gallery">
 
         {files.map((file, index) => (
-          <template key={index}>
+          <div key={index}>
             <Image
               key={index}
               src={`${api}/images/${file.filename}.${file.type}`}
@@ -60,10 +60,10 @@ const ImageGallery = () => {
               <small>{file.user}</small>
             </div>
 
-          </template>
+          </div>
         ))}
       </div>
-
+      <Link to={`/events/${id}/upload`}>upload</Link>
     </div>
   );
 };
