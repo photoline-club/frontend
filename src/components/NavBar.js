@@ -11,23 +11,27 @@ const linkStyle = {
     margin: "1rem",
     textDecoration: "none",
     color: 'Black'
-  };
+};
 
 export const NavBar = () => {
-  return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-        <Container>
-        <Navbar.Brand href="#home">Logo</Navbar.Brand>
-        <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-                <div className="navcontainer">
-                <Link to='/' style={linkStyle}>Home</Link>
-                <Link to='/profile' style={linkStyle}>Profile</Link>
-                <Link to='/login' style={linkStyle}>Login</Link>
-                </div>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
+    return (
+        <Navbar expand="lg" className="bg-body-tertiary">
+            <Container>
+            <Navbar.Brand href="#home">Logo</Navbar.Brand>
+            <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="me-auto">
+                    <div className="navcontainer">
+                    <Link to='/home' style={linkStyle}>Home</Link>
+                    { ("CurrentUser" in localStorage)?
+                    <Link to='/logout' style={linkStyle}>Logout</Link>
+                    :<Link to='/login' style={linkStyle}>Login</Link>}
+                    { ("CurrentUser" in localStorage)?
+                    <Link to='/friend' style={linkStyle}>Add Friend</Link>:''}
+
+                    </div>
+            </Nav>
+            </Navbar.Collapse>
+        </Container>
+        </Navbar>
+    );
 }

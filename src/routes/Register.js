@@ -1,11 +1,16 @@
 import React, { useState } from "react";
-import { NavBar } from "../components/NavBar";
 import { Password } from 'primereact/password';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { api } from "../const.js";
+import { useNavigate  } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-
+const linkStyle = {
+    margin: "1rem",
+    textDecoration: "none",
+    color: 'Black'
+};
 
 const fetchData = async (username, firstname, lastname, password) => {
     try {
@@ -19,12 +24,11 @@ const fetchData = async (username, firstname, lastname, password) => {
 
         if (response.status === 409) {
             alert("Username is taken");
-            return;
+            throw(new Error());
 
         }
 
     } catch (error) {
-        alert(error);
     }
 }
 
@@ -35,6 +39,8 @@ export default function Login() {
     const [pass, setPass] = useState('');
     const [passConf, setPassConf] = useState('');
 
+    const navigate = useNavigate();
+
     const handleSubmit = () => {
         if (pass===passConf) {
             fetchData(name, first, last, pass);
@@ -42,11 +48,12 @@ export default function Login() {
         } else {
             alert("Passwords must match");
         }
+
+        fetchData(name, pass).then(()=>{navigate('/login');});
     }
 
     return (
         <div>
-            <NavBar />
             <div>
                 <div>Username:</div>
                 <InputText value={name} onChange={(e) => setName(e.target.value)} />
@@ -58,7 +65,7 @@ export default function Login() {
                 <Password value={pass} onChange={(e) => setPass(e.target.value)} feedback={false} tabIndex={1} />
                 <div>Confirm Password:</div>
                 <Password value={passConf} onChange={(e) => setPassConf(e.target.value)} feedback={false} tabIndex={1} />
-                <div><Button label="Submit" onClick={handleSubmit} /></div>
+                <div><Button label="Submit" onClick={handleSubmit} /><Link to='/login' style={linkStyle}>Login</Link></div>
             </div>
         </div>
     );
