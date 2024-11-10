@@ -10,6 +10,17 @@ const ImageGallery = () => {
   const navigate = useNavigate();
   let { id } = useParams();
   const [files, setFiles] = useState([]);
+  const [event, setEvent] = useState({});
+  useEffect(() => {
+    fetch(`${api}/api/events`, {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("CurrentUser"),
+      },
+    })
+      .then((res) => res.json())
+      .then((json) => setEvent(json.events.find((e) => e.id == id)))
+      .catch(() => navigate("/login"));
+  }, []);
   useEffect(() => {
     const fetchImages = async () => {
       try {
@@ -45,19 +56,43 @@ const ImageGallery = () => {
     <div className="Root">
       <NavBar></NavBar>
       <div
+        style={{
+          marginTop: "1rem",
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column",
+        }}
+      >
+        <h1 style={{ color: "black" }}>{event.title}</h1>
+        <h2 style={{ color: "black" }}>{event.description}</h2>
+        <h3 style={{ color: "black" }}>
+          {new Date(event.event_start).toLocaleDateString()}
+          &nbsp;-&nbsp;
+          {new Date(event.event_end).toLocaleDateString()}
+        </h3>
+      </div>
+      <div
         className="image-gallery"
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           gap: "1rem",
-          marginTop: "5rem",
+          marginTop: "2rem",
         }}
       >
         <Link to={`/events/${id}/upload`}>
           <Button label="Upload" />
         </Link>
-        <div style={{display: 'flex', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center'}}>
+        <div
+          style={{
+            marginTop: "1rem",
+            display: "flex",
+            gap: "2rem",
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
           {files.map((file, index) => (
             <div key={index}>
               <Image
