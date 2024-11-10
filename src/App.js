@@ -13,10 +13,7 @@ import Logout from './routes/Logout.js';
 import Add_Event from './routes/Add_Event.js';
 import Images from './routes/Images.js'
 
-import { Timeline } from 'primereact/timeline';
-
-import { PrimeReactProvider } from 'primereact/api';
-
+import { PrimeReactProvider } from "primereact/api";
 import UploadImage from "./routes/UploadImage";
 
 function App() {
@@ -37,11 +34,14 @@ function App() {
             <Route path="/events/:id/upload" Component={UploadImage} />
             <Route path='/add_event' Component={Add_Event} />
             <Route path='/events/:id' Component={Images} />
+            <Route path="/add_event" Component={Add_Event} />
+            <Route path="/events/:id/upload" Component={UploadImage} />
           </Routes>
         </div>
       </Router>
     </PrimeReactProvider>
   );
 }
+
 
 export default App;
