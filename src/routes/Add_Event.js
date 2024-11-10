@@ -68,6 +68,7 @@ export default function Add_Event() {
 
     useEffect(() => {
         getData().then((friendsList)=>{
+            setDisplay([]);
             friendsList.forEach(f => setDisplay([...to_display, {name: f.friend.username, id:f.friend.id}]));
         }).catch(()=>{navigate('/login');})
     }, [navigate]);
@@ -106,7 +107,7 @@ export default function Add_Event() {
                 </div>
                 <div>Friends</div>
                 <div >
-                    <MultiSelect value={selected} onChange={(e) => setSelected(e.value)} options={to_display} optionLabel="name" display="chip"
+                    <MultiSelect value={selected} onChange={(e) => setSelected(e.value)} options={to_display} optionLabel="name" optionValue="id" display="chip"
                     placeholder="Select Friends" className="w-full md:w-20rem" />
                 </div>
                 <div><Button label="Submit" onClick={handleSubmit} /></div>
