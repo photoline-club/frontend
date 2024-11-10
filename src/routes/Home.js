@@ -1,12 +1,16 @@
-import React from "react";
+import React, {useEffect} from "react";
 import '../App.css';
 import { NavBar } from "../components/NavBar";
 import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
 import { Timeline } from 'primereact/timeline';
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Home() {
+    let navigate = useNavigate();
+    useEffect(() => {
+        if (!("CurrentUser" in localStorage)) {navigate('/login')}
+    }, [navigate]);
     // Need to get memory_name, date of memory and an image if wanted
 
     const events = [
