@@ -40,15 +40,6 @@ export const NavBar = () => {
             Home
           </Link>
           {"CurrentUser" in localStorage ? (
-            <Link to="/logout" style={linkStyle}>
-              Logout
-            </Link>
-          ) : (
-            <Link to="/login" style={linkStyle}>
-              Login
-            </Link>
-          )}
-          {"CurrentUser" in localStorage ? (
             <Link to="/friend" style={linkStyle}>
               Add Friend
             </Link>
@@ -61,6 +52,15 @@ export const NavBar = () => {
             </Link>
           ) : (
             ""
+          )}
+          {"CurrentUser" in localStorage ? (
+            <Link to="/logout" style={linkStyle}>
+              Logout
+            </Link>
+          ) : (
+            <Link to="/login" style={linkStyle}>
+              Login
+            </Link>
           )}
         </div>
       </div>
