@@ -1,18 +1,19 @@
-import { Image } from 'primereact/image'; // Import the Image component from PrimeReact
-import { useParams } from 'react-router-dom'; // Import useParams from react-router-dom
-import { useEffect, useState } from 'react';
+import { Image } from "primereact/image"; // Import the Image component from PrimeReact
+import { useParams } from "react-router-dom"; // Import useParams from react-router-dom
+import { useEffect, useState } from "react";
+import { api } from "../const";
 const ImageGallery = () => {
   let { id } = useParams();
   const [files, setFiles] = useState([]);
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await fetch("/events/" + id, {
+        const response = await fetch(api + "/api/events/" + id, {
           method: "GET",
           headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem("CurrentUser")
+            Authorization: "Bearer " + localStorage.getItem("CurrentUser"),
           },
-        })
+        });
         if (response.status === 400) {
           alert("No images added");
           return;
@@ -22,22 +23,17 @@ const ImageGallery = () => {
           return;
         }
         const files = await response.json();
-        const fileDetails = files.map(
-          image => ({
-            filename: image.filename,
-            type: image.Type
-          }
-          )
-        );
+        const fileDetails = files.images.map((image) => ({
+          filename: image.asset_id,
+          type: image.type,
+        }));
         console.log(fileDetails);
         setFiles(fileDetails);
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
-
     };
     fetchImages();
-
   }, [id]);
 
   return (
@@ -45,7 +41,7 @@ const ImageGallery = () => {
       {files.map((file, index) => (
         <Image
           key={index}
-          src={`images/${file.filename}.${file.type}`}
+          src={`${api}/images/${file.filename}.${file.type}`}
           alt={`Image ${index + 1}`}
           width="250"
           preview
